@@ -158,9 +158,15 @@ def make_ai_usage_stats(data: Dict, all_time_data: Optional[Dict]) -> str:
         if ai_cost:
             blocks.append(f"💵 {FM.t('Estimated AI Cost') % f'{ai_cost:.2f}'}")
 
-    if EM.SHOW_AI_TOTAL and all_time_data is not None:
-        total_tokens = all_time_data["data"].get("ai_input_tokens", 0) + all_time_data["data"].get("ai_output_tokens", 0)
-        total_cost = all_time_data["data"].get("ai_model_total_cost", 0)
+    if EM.SHOW_AI_TOTAL:
+        total_tokens = 0
+        total_cost = 0
+        if all_time_data is not None:
+            total_tokens = all_time_data["data"].get("ai_input_tokens", 0) + all_time_data["data"].get("ai_output_tokens", 0)
+            total_cost = all_time_data["data"].get("ai_model_total_cost", 0)
+        if not (total_tokens or total_cost):
+            total_tokens = data["data"].get("ai_input_tokens", 0) + data["data"].get("ai_output_tokens", 0)
+            total_cost = data["data"].get("ai_model_total_cost", 0)
         if total_tokens or total_cost:
             blocks.append(f"Σ {FM.t('Total AI Tokens') % intcomma(total_tokens)} · {FM.t('Total AI Cost') % f'{total_cost:.2f}'}")
 
