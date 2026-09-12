@@ -127,7 +127,7 @@ def make_ai_usage_stats(data: Dict, all_time_data: Optional[Dict]) -> str:
     """
     Build the standalone AI usage section. Every part is optional and controlled by its own flag:
     the most used models, this week's token usage, this week's estimated cost and the all-time totals.
-    The section is hidden entirely when nothing is enabled or no data is available.
+    When nothing is available it renders a fallback message instead of disappearing.
 
     :param data: WakaTime weekly stats response (`waka_latest`).
     :param all_time_data: WakaTime all-time stats response (`waka_all`), or None when totals are disabled.
@@ -171,7 +171,8 @@ def make_ai_usage_stats(data: Dict, all_time_data: Optional[Dict]) -> str:
             blocks.append(f"Σ {FM.t('Total AI Tokens') % intcomma(total_tokens)} · {FM.t('Total AI Cost') % f'{total_cost:.2f}'}")
 
     if not blocks:
-        return ""
+        title = FM.t("Most Used AI Models") if EM.SHOW_AI_MODELS else FM.t("AI Coding This Week")
+        return f"**🤖 {title}** \n\n```text\n{FM.t('No AI Coding Activity Tracked This Week')}\n```\n\n"
     return "\n\n".join(blocks) + "\n\n"
 
 
