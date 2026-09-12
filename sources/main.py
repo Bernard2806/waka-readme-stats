@@ -174,31 +174,29 @@ def make_ai_usage_stats(data: Dict, all_time_data: Optional[Dict], summary_data:
         source because it includes the current day.
     :returns: String representation of the AI usage stats.
     """
-    blocks: List[str] = []
     weekly_ai = aggregate_ai_from_summaries(summary_data) or data["data"]
+    title = FM.t("Most Used AI Models") if EM.SHOW_AI_MODELS else FM.t("AI Coding This Week")
 
+    models_block = ""
     ai_model_breakdown = weekly_ai.get("ai_model_breakdown", [])
     if EM.SHOW_AI_MODELS and ai_model_breakdown:
         total_lines = sum(model["lines"] for model in ai_model_breakdown) or 1
         names = [model["name"] for model in ai_model_breakdown]
         texts = [f"{intcomma(model['lines'])} lines" for model in ai_model_breakdown]
         percents = [round(model["lines"] / total_lines * 100, 2) for model in ai_model_breakdown]
-        model_list = make_list(names=names, texts=texts, percents=percents)
-        if EM.BAR_STYLE == "svg":
-            blocks.append(f"**🤖 {FM.t('Most Used AI Models')}** \n\n{model_list}")
-        else:
-            blocks.append(f"**🤖 {FM.t('Most Used AI Models')}** \n\n```text\n{model_list}\n```")
+        models_block = make_list(names=names, texts=texts, percents=percents)
 
+    summary_lines: List[str] = []
     if EM.SHOW_AI_TOKENS:
         ai_input_tokens = weekly_ai.get("ai_input_tokens", 0)
         ai_output_tokens = weekly_ai.get("ai_output_tokens", 0)
         if ai_input_tokens or ai_output_tokens:
-            blocks.append(f"🔤 {FM.t('AI Token Usage') % (intcomma(ai_input_tokens), intcomma(ai_output_tokens))}")
+            summary_lines.append(f"🔤 {FM.t('AI Token Usage') % (intcomma(ai_input_tokens), intcomma(ai_output_tokens))}")
 
     if EM.SHOW_AI_COST:
         ai_cost = weekly_ai.get("ai_model_total_cost", 0)
         if ai_cost:
-            blocks.append(f"💵 {FM.t('Estimated AI Cost') % f'{ai_cost:.2f}'}")
+            summary_lines.append(f"💵 {FM.t('Estimated AI Cost') % f'{ai_cost:.2f}'}")
 
     if EM.SHOW_AI_TOTAL:
         total_tokens = 0
@@ -210,12 +208,24 @@ def make_ai_usage_stats(data: Dict, all_time_data: Optional[Dict], summary_data:
             total_tokens = weekly_ai.get("ai_input_tokens", 0) + weekly_ai.get("ai_output_tokens", 0)
             total_cost = weekly_ai.get("ai_model_total_cost", 0)
         if total_tokens or total_cost:
-            blocks.append(f"Σ {FM.t('Total AI Tokens') % intcomma(total_tokens)} · {FM.t('Total AI Cost') % f'{total_cost:.2f}'}")
+            summary_lines.append(f"Σ {FM.t('Total AI Tokens') % intcomma(total_tokens)} · {FM.t('Total AI Cost') % f'{total_cost:.2f}'}")
 
-    if not blocks:
-        title = FM.t("Most Used AI Models") if EM.SHOW_AI_MODELS else FM.t("AI Coding This Week")
+    if not models_block and not summary_lines:
         return f"**🤖 {title}** \n\n```text\n{FM.t('No AI Coding Activity Tracked This Week')}\n```\n\n"
-    return "\n\n".join(blocks) + "\n\n"
+
+    if EM.BAR_STYLE == "svg":
+        output = f"**🤖 {title}** \n\n"
+        if models_block:
+            output += f"{models_block}\n\n"
+        if summary_lines:
+            output += f"```text\n{chr(10).join(summary_lines)}\n```\n\n"
+        return output
+
+    sections = [models_block] if models_block else []
+    if summary_lines:
+        sections.append("\n".join(summary_lines))
+    body = "\n\n".join(sections)
+    return f"**🤖 {title}** \n\n```text\n{body}\n```\n\n"
 
 
 async def get_waka_time_stats(repositories: Dict, commit_dates: Dict) -> str:
