@@ -58,7 +58,9 @@
     "Review Style: Hands-On Reviewer": "🔍 Hands-On Reviewer",
     "Review Style: High AI Trust": "🚀 High AI Trust",
     "Review Style Detail": "%s — %s%% of changed lines were hand-edited",
-    "Most Used AI Models": "Most Used AI Models"
+    "Most Used AI Models": "Most Used AI Models",
+    "Total AI Tokens": "%s Total Tokens",
+    "Total AI Cost": "$%s Total Cost"
   },
   "fr": {
     "Monday": "Lundi",
@@ -119,7 +121,9 @@
     "Review Style: Hands-On Reviewer": "🔍 Hands-On Reviewer",
     "Review Style: High AI Trust": "🚀 High AI Trust",
     "Review Style Detail": "%s — %s%% of changed lines were hand-edited",
-    "Most Used AI Models": "Most Used AI Models"
+    "Most Used AI Models": "Most Used AI Models",
+    "Total AI Tokens": "%s Total Tokens",
+    "Total AI Cost": "$%s Total Cost"
   },
   "bn": {
     "Monday": "সোমবার",
@@ -180,7 +184,9 @@
     "Review Style: Hands-On Reviewer": "🔍 Hands-On Reviewer",
     "Review Style: High AI Trust": "🚀 High AI Trust",
     "Review Style Detail": "%s — %s%% of changed lines were hand-edited",
-    "Most Used AI Models": "Most Used AI Models"
+    "Most Used AI Models": "Most Used AI Models",
+    "Total AI Tokens": "%s Total Tokens",
+    "Total AI Cost": "$%s Total Cost"
   },
   "it": {
     "Monday": "Lunedì",
@@ -241,7 +247,9 @@
     "Review Style: Hands-On Reviewer": "🔍 Hands-On Reviewer",
     "Review Style: High AI Trust": "🚀 High AI Trust",
     "Review Style Detail": "%s — %s%% of changed lines were hand-edited",
-    "Most Used AI Models": "Most Used AI Models"
+    "Most Used AI Models": "Most Used AI Models",
+    "Total AI Tokens": "%s Total Tokens",
+    "Total AI Cost": "$%s Total Cost"
   },
   "zh": {
     "Monday": "星期一",
@@ -302,7 +310,9 @@
     "Review Style: Hands-On Reviewer": "🔍 Hands-On Reviewer",
     "Review Style: High AI Trust": "🚀 High AI Trust",
     "Review Style Detail": "%s — %s%% of changed lines were hand-edited",
-    "Most Used AI Models": "Most Used AI Models"
+    "Most Used AI Models": "Most Used AI Models",
+    "Total AI Tokens": "%s Total Tokens",
+    "Total AI Cost": "$%s Total Cost"
   },
   "zh_TW": {
     "Monday": "星期一",
@@ -363,7 +373,9 @@
     "Review Style: Hands-On Reviewer": "🔍 Hands-On Reviewer",
     "Review Style: High AI Trust": "🚀 High AI Trust",
     "Review Style Detail": "%s — %s%% of changed lines were hand-edited",
-    "Most Used AI Models": "Most Used AI Models"
+    "Most Used AI Models": "Most Used AI Models",
+    "Total AI Tokens": "%s Total Tokens",
+    "Total AI Cost": "$%s Total Cost"
   },
   "ar": {
     "Monday": "الأثنين",
@@ -424,7 +436,9 @@
     "Review Style: Hands-On Reviewer": "🔍 Hands-On Reviewer",
     "Review Style: High AI Trust": "🚀 High AI Trust",
     "Review Style Detail": "%s — %s%% of changed lines were hand-edited",
-    "Most Used AI Models": "Most Used AI Models"
+    "Most Used AI Models": "Most Used AI Models",
+    "Total AI Tokens": "%s Total Tokens",
+    "Total AI Cost": "$%s Total Cost"
   },
   "pt": {
     "Monday": "Segunda-Feira",
@@ -485,7 +499,9 @@
     "Review Style: Hands-On Reviewer": "🔍 Hands-On Reviewer",
     "Review Style: High AI Trust": "🚀 High AI Trust",
     "Review Style Detail": "%s — %s%% of changed lines were hand-edited",
-    "Most Used AI Models": "Most Used AI Models"
+    "Most Used AI Models": "Most Used AI Models",
+    "Total AI Tokens": "%s Total Tokens",
+    "Total AI Cost": "$%s Total Cost"
   },
   "pl": {
     "Monday": "Poniedziałek",
@@ -546,7 +562,9 @@
     "Review Style: Hands-On Reviewer": "🔍 Hands-On Reviewer",
     "Review Style: High AI Trust": "🚀 High AI Trust",
     "Review Style Detail": "%s — %s%% of changed lines were hand-edited",
-    "Most Used AI Models": "Most Used AI Models"
+    "Most Used AI Models": "Most Used AI Models",
+    "Total AI Tokens": "%s Total Tokens",
+    "Total AI Cost": "$%s Total Cost"
   },
   "es": {
     "Monday": "Lunes",
@@ -607,7 +625,9 @@
     "Review Style: Hands-On Reviewer": "🔍 Hands-On Reviewer",
     "Review Style: High AI Trust": "🚀 High AI Trust",
     "Review Style Detail": "%s — %s%% of changed lines were hand-edited",
-    "Most Used AI Models": "Modelos de IA más usados"
+    "Most Used AI Models": "Modelos de IA más usados",
+    "Total AI Tokens": "%s Tokens Totales",
+    "Total AI Cost": "$%s Coste Total"
   },
   "gl": {
     "Monday": "Luns",
@@ -668,7 +688,9 @@
     "Review Style: Hands-On Reviewer": "🔍 Hands-On Reviewer",
     "Review Style: High AI Trust": "🚀 High AI Trust",
     "Review Style Detail": "%s — %s%% of changed lines were hand-edited",
-    "Most Used AI Models": "Most Used AI Models"
+    "Most Used AI Models": "Most Used AI Models",
+    "Total AI Tokens": "%s Total Tokens",
+    "Total AI Cost": "$%s Total Cost"
   },
   "ko": {
     "Monday": "월요일",
@@ -729,7 +751,9 @@
     "Review Style: Hands-On Reviewer": "🔍 Hands-On Reviewer",
     "Review Style: High AI Trust": "🚀 High AI Trust",
     "Review Style Detail": "%s — %s%% of changed lines were hand-edited",
-    "Most Used AI Models": "Most Used AI Models"
+    "Most Used AI Models": "Most Used AI Models",
+    "Total AI Tokens": "%s Total Tokens",
+    "Total AI Cost": "$%s Total Cost"
   },
   "tr": {
     "Monday": "Pazartesi",
@@ -790,7 +814,9 @@
     "Review Style: Hands-On Reviewer": "🔍 Hands-On Reviewer",
     "Review Style: High AI Trust": "🚀 High AI Trust",
     "Review Style Detail": "%s — %s%% of changed lines were hand-edited",
-    "Most Used AI Models": "Most Used AI Models"
+    "Most Used AI Models": "Most Used AI Models",
+    "Total AI Tokens": "%s Total Tokens",
+    "Total AI Cost": "$%s Total Cost"
   },
   "ru": {
     "Monday": "Понедельник",
@@ -851,7 +877,9 @@
     "Review Style: Hands-On Reviewer": "🔍 Hands-On Reviewer",
     "Review Style: High AI Trust": "🚀 High AI Trust",
     "Review Style Detail": "%s — %s%% of changed lines were hand-edited",
-    "Most Used AI Models": "Most Used AI Models"
+    "Most Used AI Models": "Most Used AI Models",
+    "Total AI Tokens": "%s Total Tokens",
+    "Total AI Cost": "$%s Total Cost"
   },
   "de": {
     "Monday": "Montag",
@@ -912,7 +940,9 @@
     "Review Style: Hands-On Reviewer": "🔍 Hands-On Reviewer",
     "Review Style: High AI Trust": "🚀 High AI Trust",
     "Review Style Detail": "%s — %s%% of changed lines were hand-edited",
-    "Most Used AI Models": "Most Used AI Models"
+    "Most Used AI Models": "Most Used AI Models",
+    "Total AI Tokens": "%s Total Tokens",
+    "Total AI Cost": "$%s Total Cost"
   },
   "id": {
     "Monday": "Senin",
@@ -973,7 +1003,9 @@
     "Review Style: Hands-On Reviewer": "🔍 Hands-On Reviewer",
     "Review Style: High AI Trust": "🚀 High AI Trust",
     "Review Style Detail": "%s — %s%% of changed lines were hand-edited",
-    "Most Used AI Models": "Most Used AI Models"
+    "Most Used AI Models": "Most Used AI Models",
+    "Total AI Tokens": "%s Total Tokens",
+    "Total AI Cost": "$%s Total Cost"
   },
   "ca": {
     "Monday": "Dilluns",
@@ -1034,7 +1066,9 @@
     "Review Style: Hands-On Reviewer": "🔍 Hands-On Reviewer",
     "Review Style: High AI Trust": "🚀 High AI Trust",
     "Review Style Detail": "%s — %s%% of changed lines were hand-edited",
-    "Most Used AI Models": "Most Used AI Models"
+    "Most Used AI Models": "Most Used AI Models",
+    "Total AI Tokens": "%s Total Tokens",
+    "Total AI Cost": "$%s Total Cost"
   },
   "vn": {
     "Monday": "Thứ Hai",
@@ -1095,7 +1129,9 @@
     "Review Style: Hands-On Reviewer": "🔍 Hands-On Reviewer",
     "Review Style: High AI Trust": "🚀 High AI Trust",
     "Review Style Detail": "%s — %s%% of changed lines were hand-edited",
-    "Most Used AI Models": "Most Used AI Models"
+    "Most Used AI Models": "Most Used AI Models",
+    "Total AI Tokens": "%s Total Tokens",
+    "Total AI Cost": "$%s Total Cost"
   },
   "uk": {
     "Monday": "Понеділок",
@@ -1156,7 +1192,9 @@
     "Review Style: Hands-On Reviewer": "🔍 Hands-On Reviewer",
     "Review Style: High AI Trust": "🚀 High AI Trust",
     "Review Style Detail": "%s — %s%% of changed lines were hand-edited",
-    "Most Used AI Models": "Most Used AI Models"
+    "Most Used AI Models": "Most Used AI Models",
+    "Total AI Tokens": "%s Total Tokens",
+    "Total AI Cost": "$%s Total Cost"
   },
   "fa": {
     "Monday": "دوشنبه",
@@ -1217,7 +1255,9 @@
     "Review Style: Hands-On Reviewer": "🔍 Hands-On Reviewer",
     "Review Style: High AI Trust": "🚀 High AI Trust",
     "Review Style Detail": "%s — %s%% of changed lines were hand-edited",
-    "Most Used AI Models": "Most Used AI Models"
+    "Most Used AI Models": "Most Used AI Models",
+    "Total AI Tokens": "%s Total Tokens",
+    "Total AI Cost": "$%s Total Cost"
   },
   "sw" : {
     "Monday": "Jumatatu",
@@ -1278,7 +1318,9 @@
     "Review Style: Hands-On Reviewer": "🔍 Hands-On Reviewer",
     "Review Style: High AI Trust": "🚀 High AI Trust",
     "Review Style Detail": "%s — %s%% of changed lines were hand-edited",
-    "Most Used AI Models": "Most Used AI Models"
+    "Most Used AI Models": "Most Used AI Models",
+    "Total AI Tokens": "%s Total Tokens",
+    "Total AI Cost": "$%s Total Cost"
 },
   "hi": {
     "Monday": "सोमवार",
@@ -1339,6 +1381,8 @@
     "Review Style: Hands-On Reviewer": "🔍 Hands-On Reviewer",
     "Review Style: High AI Trust": "🚀 High AI Trust",
     "Review Style Detail": "%s — %s%% of changed lines were hand-edited",
-    "Most Used AI Models": "Most Used AI Models"
+    "Most Used AI Models": "Most Used AI Models",
+    "Total AI Tokens": "%s Total Tokens",
+    "Total AI Cost": "$%s Total Cost"
   }
 }

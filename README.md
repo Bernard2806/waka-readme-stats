@@ -201,7 +201,12 @@ If there was no AI coding activity that week, the block still renders with a fal
 No AI Coding Activity Tracked This Week
 ```
 
-The `SHOW_AI_MODELS` flag can be set to `True` to show a standalone list with the AI models you used the most this week, without the rest of the weekly AI breakdown. It reuses the same per-model data as `SHOW_AI_CODING` and is hidden entirely when no AI model data is available. When both flags are enabled, the per-model breakdown is rendered once in this standalone list instead of inside the weekly AI block.
+The `SHOW_AI_MODELS`, `SHOW_AI_TOKENS`, `SHOW_AI_COST` and `SHOW_AI_TOTAL` flags build a standalone AI usage section, each part optional and independent from the weekly `SHOW_AI_CODING` breakdown. The section is hidden entirely when nothing is enabled or no AI data is available:
+
+- `SHOW_AI_MODELS` — a list with the AI models you used the most this week. It reuses the same per-model data as `SHOW_AI_CODING`; when both flags are enabled, the per-model breakdown is rendered once in this standalone list instead of inside the weekly AI block.
+- `SHOW_AI_TOKENS` — this week's input/output token usage.
+- `SHOW_AI_COST` — this week's estimated AI cost.
+- `SHOW_AI_TOTAL` — the all-time total AI tokens and cost (from WakaTime's `all_time` stats).
 
 **🤖 Most Used AI Models**
 
@@ -209,6 +214,12 @@ The `SHOW_AI_MODELS` flag can be set to `True` to show a standalone list with th
 Sonnet                   1,200 lines         ██████████████████████░░░   89.96 %
 GPT-4                    134 lines           ███░░░░░░░░░░░░░░░░░░░░░░   10.04 %
 ```
+
+🔤 845,000 Input Tokens, 21,000 Output Tokens
+
+💵 $12.48 Estimated AI Cost This Week
+
+Σ 866,000 Total Tokens · $120.30 Total Cost
 
 The `SHOW_PROFILE_VIEWS` flag can be set to `False` to hide **Profile Views**
 

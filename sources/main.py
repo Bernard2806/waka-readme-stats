@@ -123,27 +123,50 @@ def make_ai_coding_stats(data: Dict) -> str:
     return f"{stats[:-1]}```\n\n"
 
 
-def make_ai_models_stats(data: Dict) -> str:
+def make_ai_usage_stats(data: Dict, all_time_data: Optional[Dict]) -> str:
     """
-    Build a list with the AI models used the most, based on WakaTime's weekly model breakdown.
-    Returns an empty string when no AI model data is available, so the section is hidden.
+    Build the standalone AI usage section. Every part is optional and controlled by its own flag:
+    the most used models, this week's token usage, this week's estimated cost and the all-time totals.
+    The section is hidden entirely when nothing is enabled or no data is available.
 
     :param data: WakaTime weekly stats response (`waka_latest`).
-    :returns: String representation of the AI model usage list.
+    :param all_time_data: WakaTime all-time stats response (`waka_all`), or None when totals are disabled.
+    :returns: String representation of the AI usage stats.
     """
+    blocks: List[str] = []
+
     ai_model_breakdown = data["data"].get("ai_model_breakdown", [])
-    if not ai_model_breakdown:
+    if EM.SHOW_AI_MODELS and ai_model_breakdown:
+        total_lines = sum(model["lines"] for model in ai_model_breakdown) or 1
+        names = [model["name"] for model in ai_model_breakdown]
+        texts = [f"{intcomma(model['lines'])} lines" for model in ai_model_breakdown]
+        percents = [round(model["lines"] / total_lines * 100, 2) for model in ai_model_breakdown]
+        model_list = make_list(names=names, texts=texts, percents=percents)
+        if EM.BAR_STYLE == "svg":
+            blocks.append(f"**🤖 {FM.t('Most Used AI Models')}** \n\n{model_list}")
+        else:
+            blocks.append(f"**🤖 {FM.t('Most Used AI Models')}** \n\n```text\n{model_list}\n```")
+
+    if EM.SHOW_AI_TOKENS:
+        ai_input_tokens = data["data"].get("ai_input_tokens", 0)
+        ai_output_tokens = data["data"].get("ai_output_tokens", 0)
+        if ai_input_tokens or ai_output_tokens:
+            blocks.append(f"🔤 {FM.t('AI Token Usage') % (intcomma(ai_input_tokens), intcomma(ai_output_tokens))}")
+
+    if EM.SHOW_AI_COST:
+        ai_cost = data["data"].get("ai_model_total_cost", 0)
+        if ai_cost:
+            blocks.append(f"💵 {FM.t('Estimated AI Cost') % f'{ai_cost:.2f}'}")
+
+    if EM.SHOW_AI_TOTAL and all_time_data is not None:
+        total_tokens = all_time_data["data"].get("ai_input_tokens", 0) + all_time_data["data"].get("ai_output_tokens", 0)
+        total_cost = all_time_data["data"].get("ai_model_total_cost", 0)
+        if total_tokens or total_cost:
+            blocks.append(f"Σ {FM.t('Total AI Tokens') % intcomma(total_tokens)} · {FM.t('Total AI Cost') % f'{total_cost:.2f}'}")
+
+    if not blocks:
         return ""
-
-    total_lines = sum(model["lines"] for model in ai_model_breakdown) or 1
-    names = [model["name"] for model in ai_model_breakdown]
-    texts = [f"{intcomma(model['lines'])} lines" for model in ai_model_breakdown]
-    percents = [round(model["lines"] / total_lines * 100, 2) for model in ai_model_breakdown]
-
-    title = f"**🤖 {FM.t('Most Used AI Models')}** \n\n"
-    if EM.BAR_STYLE == "svg":
-        return f"{title}{make_list(names=names, texts=texts, percents=percents)}\n\n"
-    return f"{title}```text\n{make_list(names=names, texts=texts, percents=percents)}\n```\n\n"
+    return "\n\n".join(blocks) + "\n\n"
 
 
 async def get_waka_time_stats(repositories: Dict, commit_dates: Dict) -> str:
@@ -207,9 +230,10 @@ async def get_waka_time_stats(repositories: Dict, commit_dates: Dict) -> str:
         DBM.i("Adding AI coding stats...")
         stats += make_ai_coding_stats(data)
 
-    if EM.SHOW_AI_MODELS:
-        DBM.i("Adding AI model usage stats...")
-        stats += make_ai_models_stats(data)
+    if EM.SHOW_AI_MODELS or EM.SHOW_AI_TOKENS or EM.SHOW_AI_COST or EM.SHOW_AI_TOTAL:
+        DBM.i("Adding AI usage stats...")
+        all_time_data = await DM.get_remote_json("waka_all") if EM.SHOW_AI_TOTAL else None
+        stats += make_ai_usage_stats(data, all_time_data)
 
     DBM.g("WakaTime stats added!")
     return stats
