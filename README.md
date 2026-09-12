@@ -213,13 +213,11 @@ The `SHOW_AI_MODELS`, `SHOW_AI_TOKENS`, `SHOW_AI_COST` and `SHOW_AI_TOTAL` flags
 ```text
 Sonnet                   1,200 lines         ██████████████████████░░░   89.96 %
 GPT-4                    134 lines           ███░░░░░░░░░░░░░░░░░░░░░░   10.04 %
-```
 
 🔤 845,000 Input Tokens, 21,000 Output Tokens
-
 💵 $12.48 Estimated AI Cost This Week
-
 Σ 866,000 Total Tokens · $120.30 Total Cost
+```
 
 The `SHOW_PROFILE_VIEWS` flag can be set to `False` to hide **Profile Views**
 
