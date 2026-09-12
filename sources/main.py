@@ -111,7 +111,7 @@ def make_ai_coding_stats(data: Dict) -> str:
     stats += f"🧠 {FM.t('AI Sessions and Prompts') % (ai_sessions, ai_prompts)}\n\n"
 
     ai_model_breakdown = data["data"].get("ai_model_breakdown", [])
-    if ai_model_breakdown:
+    if ai_model_breakdown and not EM.SHOW_AI_MODELS:
         total_lines = sum(model["lines"] for model in ai_model_breakdown) or 1
         names = [model["name"] for model in ai_model_breakdown]
         texts = [f"{intcomma(model['lines'])} lines" for model in ai_model_breakdown]
@@ -121,6 +121,29 @@ def make_ai_coding_stats(data: Dict) -> str:
     stats += f"{make_ai_coding_insights(ai_written_percent, prompt_length_avg, prompts_per_session, manual_touch_percent)}\n"
 
     return f"{stats[:-1]}```\n\n"
+
+
+def make_ai_models_stats(data: Dict) -> str:
+    """
+    Build a list with the AI models used the most, based on WakaTime's weekly model breakdown.
+    Returns an empty string when no AI model data is available, so the section is hidden.
+
+    :param data: WakaTime weekly stats response (`waka_latest`).
+    :returns: String representation of the AI model usage list.
+    """
+    ai_model_breakdown = data["data"].get("ai_model_breakdown", [])
+    if not ai_model_breakdown:
+        return ""
+
+    total_lines = sum(model["lines"] for model in ai_model_breakdown) or 1
+    names = [model["name"] for model in ai_model_breakdown]
+    texts = [f"{intcomma(model['lines'])} lines" for model in ai_model_breakdown]
+    percents = [round(model["lines"] / total_lines * 100, 2) for model in ai_model_breakdown]
+
+    title = f"**🤖 {FM.t('Most Used AI Models')}** \n\n"
+    if EM.BAR_STYLE == "svg":
+        return f"{title}{make_list(names=names, texts=texts, percents=percents)}\n\n"
+    return f"{title}```text\n{make_list(names=names, texts=texts, percents=percents)}\n```\n\n"
 
 
 async def get_waka_time_stats(repositories: Dict, commit_dates: Dict) -> str:
@@ -183,6 +206,10 @@ async def get_waka_time_stats(repositories: Dict, commit_dates: Dict) -> str:
     if EM.SHOW_AI_CODING:
         DBM.i("Adding AI coding stats...")
         stats += make_ai_coding_stats(data)
+
+    if EM.SHOW_AI_MODELS:
+        DBM.i("Adding AI model usage stats...")
+        stats += make_ai_models_stats(data)
 
     DBM.g("WakaTime stats added!")
     return stats

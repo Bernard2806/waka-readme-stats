@@ -57,7 +57,8 @@
     "Session Style Detail": "%s — average %s prompts per session",
     "Review Style: Hands-On Reviewer": "🔍 Hands-On Reviewer",
     "Review Style: High AI Trust": "🚀 High AI Trust",
-    "Review Style Detail": "%s — %s%% of changed lines were hand-edited"
+    "Review Style Detail": "%s — %s%% of changed lines were hand-edited",
+    "Most Used AI Models": "Most Used AI Models"
   },
   "fr": {
     "Monday": "Lundi",
@@ -117,7 +118,8 @@
     "Session Style Detail": "%s — average %s prompts per session",
     "Review Style: Hands-On Reviewer": "🔍 Hands-On Reviewer",
     "Review Style: High AI Trust": "🚀 High AI Trust",
-    "Review Style Detail": "%s — %s%% of changed lines were hand-edited"
+    "Review Style Detail": "%s — %s%% of changed lines were hand-edited",
+    "Most Used AI Models": "Most Used AI Models"
   },
   "bn": {
     "Monday": "সোমবার",
@@ -177,7 +179,8 @@
     "Session Style Detail": "%s — average %s prompts per session",
     "Review Style: Hands-On Reviewer": "🔍 Hands-On Reviewer",
     "Review Style: High AI Trust": "🚀 High AI Trust",
-    "Review Style Detail": "%s — %s%% of changed lines were hand-edited"
+    "Review Style Detail": "%s — %s%% of changed lines were hand-edited",
+    "Most Used AI Models": "Most Used AI Models"
   },
   "it": {
     "Monday": "Lunedì",
@@ -237,7 +240,8 @@
     "Session Style Detail": "%s — average %s prompts per session",
     "Review Style: Hands-On Reviewer": "🔍 Hands-On Reviewer",
     "Review Style: High AI Trust": "🚀 High AI Trust",
-    "Review Style Detail": "%s — %s%% of changed lines were hand-edited"
+    "Review Style Detail": "%s — %s%% of changed lines were hand-edited",
+    "Most Used AI Models": "Most Used AI Models"
   },
   "zh": {
     "Monday": "星期一",
@@ -297,7 +301,8 @@
     "Session Style Detail": "%s — average %s prompts per session",
     "Review Style: Hands-On Reviewer": "🔍 Hands-On Reviewer",
     "Review Style: High AI Trust": "🚀 High AI Trust",
-    "Review Style Detail": "%s — %s%% of changed lines were hand-edited"
+    "Review Style Detail": "%s — %s%% of changed lines were hand-edited",
+    "Most Used AI Models": "Most Used AI Models"
   },
   "zh_TW": {
     "Monday": "星期一",
@@ -357,7 +362,8 @@
     "Session Style Detail": "%s — average %s prompts per session",
     "Review Style: Hands-On Reviewer": "🔍 Hands-On Reviewer",
     "Review Style: High AI Trust": "🚀 High AI Trust",
-    "Review Style Detail": "%s — %s%% of changed lines were hand-edited"
+    "Review Style Detail": "%s — %s%% of changed lines were hand-edited",
+    "Most Used AI Models": "Most Used AI Models"
   },
   "ar": {
     "Monday": "الأثنين",
@@ -417,7 +423,8 @@
     "Session Style Detail": "%s — average %s prompts per session",
     "Review Style: Hands-On Reviewer": "🔍 Hands-On Reviewer",
     "Review Style: High AI Trust": "🚀 High AI Trust",
-    "Review Style Detail": "%s — %s%% of changed lines were hand-edited"
+    "Review Style Detail": "%s — %s%% of changed lines were hand-edited",
+    "Most Used AI Models": "Most Used AI Models"
   },
   "pt": {
     "Monday": "Segunda-Feira",
@@ -477,7 +484,8 @@
     "Session Style Detail": "%s — average %s prompts per session",
     "Review Style: Hands-On Reviewer": "🔍 Hands-On Reviewer",
     "Review Style: High AI Trust": "🚀 High AI Trust",
-    "Review Style Detail": "%s — %s%% of changed lines were hand-edited"
+    "Review Style Detail": "%s — %s%% of changed lines were hand-edited",
+    "Most Used AI Models": "Most Used AI Models"
   },
   "pl": {
     "Monday": "Poniedziałek",
@@ -537,7 +545,8 @@
     "Session Style Detail": "%s — average %s prompts per session",
     "Review Style: Hands-On Reviewer": "🔍 Hands-On Reviewer",
     "Review Style: High AI Trust": "🚀 High AI Trust",
-    "Review Style Detail": "%s — %s%% of changed lines were hand-edited"
+    "Review Style Detail": "%s — %s%% of changed lines were hand-edited",
+    "Most Used AI Models": "Most Used AI Models"
   },
   "es": {
     "Monday": "Lunes",
@@ -597,7 +606,8 @@
     "Session Style Detail": "%s — average %s prompts per session",
     "Review Style: Hands-On Reviewer": "🔍 Hands-On Reviewer",
     "Review Style: High AI Trust": "🚀 High AI Trust",
-    "Review Style Detail": "%s — %s%% of changed lines were hand-edited"
+    "Review Style Detail": "%s — %s%% of changed lines were hand-edited",
+    "Most Used AI Models": "Modelos de IA más usados"
   },
   "gl": {
     "Monday": "Luns",
@@ -657,7 +667,8 @@
     "Session Style Detail": "%s — average %s prompts per session",
     "Review Style: Hands-On Reviewer": "🔍 Hands-On Reviewer",
     "Review Style: High AI Trust": "🚀 High AI Trust",
-    "Review Style Detail": "%s — %s%% of changed lines were hand-edited"
+    "Review Style Detail": "%s — %s%% of changed lines were hand-edited",
+    "Most Used AI Models": "Most Used AI Models"
   },
   "ko": {
     "Monday": "월요일",
@@ -717,7 +728,8 @@
     "Session Style Detail": "%s — average %s prompts per session",
     "Review Style: Hands-On Reviewer": "🔍 Hands-On Reviewer",
     "Review Style: High AI Trust": "🚀 High AI Trust",
-    "Review Style Detail": "%s — %s%% of changed lines were hand-edited"
+    "Review Style Detail": "%s — %s%% of changed lines were hand-edited",
+    "Most Used AI Models": "Most Used AI Models"
   },
   "tr": {
     "Monday": "Pazartesi",
@@ -777,7 +789,8 @@
     "Session Style Detail": "%s — average %s prompts per session",
     "Review Style: Hands-On Reviewer": "🔍 Hands-On Reviewer",
     "Review Style: High AI Trust": "🚀 High AI Trust",
-    "Review Style Detail": "%s — %s%% of changed lines were hand-edited"
+    "Review Style Detail": "%s — %s%% of changed lines were hand-edited",
+    "Most Used AI Models": "Most Used AI Models"
   },
   "ru": {
     "Monday": "Понедельник",
@@ -837,7 +850,8 @@
     "Session Style Detail": "%s — average %s prompts per session",
     "Review Style: Hands-On Reviewer": "🔍 Hands-On Reviewer",
     "Review Style: High AI Trust": "🚀 High AI Trust",
-    "Review Style Detail": "%s — %s%% of changed lines were hand-edited"
+    "Review Style Detail": "%s — %s%% of changed lines were hand-edited",
+    "Most Used AI Models": "Most Used AI Models"
   },
   "de": {
     "Monday": "Montag",
@@ -897,7 +911,8 @@
     "Session Style Detail": "%s — average %s prompts per session",
     "Review Style: Hands-On Reviewer": "🔍 Hands-On Reviewer",
     "Review Style: High AI Trust": "🚀 High AI Trust",
-    "Review Style Detail": "%s — %s%% of changed lines were hand-edited"
+    "Review Style Detail": "%s — %s%% of changed lines were hand-edited",
+    "Most Used AI Models": "Most Used AI Models"
   },
   "id": {
     "Monday": "Senin",
@@ -957,7 +972,8 @@
     "Session Style Detail": "%s — average %s prompts per session",
     "Review Style: Hands-On Reviewer": "🔍 Hands-On Reviewer",
     "Review Style: High AI Trust": "🚀 High AI Trust",
-    "Review Style Detail": "%s — %s%% of changed lines were hand-edited"
+    "Review Style Detail": "%s — %s%% of changed lines were hand-edited",
+    "Most Used AI Models": "Most Used AI Models"
   },
   "ca": {
     "Monday": "Dilluns",
@@ -1017,7 +1033,8 @@
     "Session Style Detail": "%s — average %s prompts per session",
     "Review Style: Hands-On Reviewer": "🔍 Hands-On Reviewer",
     "Review Style: High AI Trust": "🚀 High AI Trust",
-    "Review Style Detail": "%s — %s%% of changed lines were hand-edited"
+    "Review Style Detail": "%s — %s%% of changed lines were hand-edited",
+    "Most Used AI Models": "Most Used AI Models"
   },
   "vn": {
     "Monday": "Thứ Hai",
@@ -1077,7 +1094,8 @@
     "Session Style Detail": "%s — average %s prompts per session",
     "Review Style: Hands-On Reviewer": "🔍 Hands-On Reviewer",
     "Review Style: High AI Trust": "🚀 High AI Trust",
-    "Review Style Detail": "%s — %s%% of changed lines were hand-edited"
+    "Review Style Detail": "%s — %s%% of changed lines were hand-edited",
+    "Most Used AI Models": "Most Used AI Models"
   },
   "uk": {
     "Monday": "Понеділок",
@@ -1137,7 +1155,8 @@
     "Session Style Detail": "%s — average %s prompts per session",
     "Review Style: Hands-On Reviewer": "🔍 Hands-On Reviewer",
     "Review Style: High AI Trust": "🚀 High AI Trust",
-    "Review Style Detail": "%s — %s%% of changed lines were hand-edited"
+    "Review Style Detail": "%s — %s%% of changed lines were hand-edited",
+    "Most Used AI Models": "Most Used AI Models"
   },
   "fa": {
     "Monday": "دوشنبه",
@@ -1197,7 +1216,8 @@
     "Session Style Detail": "%s — average %s prompts per session",
     "Review Style: Hands-On Reviewer": "🔍 Hands-On Reviewer",
     "Review Style: High AI Trust": "🚀 High AI Trust",
-    "Review Style Detail": "%s — %s%% of changed lines were hand-edited"
+    "Review Style Detail": "%s — %s%% of changed lines were hand-edited",
+    "Most Used AI Models": "Most Used AI Models"
   },
   "sw" : {
     "Monday": "Jumatatu",
@@ -1257,7 +1277,8 @@
     "Session Style Detail": "%s — average %s prompts per session",
     "Review Style: Hands-On Reviewer": "🔍 Hands-On Reviewer",
     "Review Style: High AI Trust": "🚀 High AI Trust",
-    "Review Style Detail": "%s — %s%% of changed lines were hand-edited"
+    "Review Style Detail": "%s — %s%% of changed lines were hand-edited",
+    "Most Used AI Models": "Most Used AI Models"
 },
   "hi": {
     "Monday": "सोमवार",
@@ -1317,6 +1338,7 @@
     "Session Style Detail": "%s — average %s prompts per session",
     "Review Style: Hands-On Reviewer": "🔍 Hands-On Reviewer",
     "Review Style: High AI Trust": "🚀 High AI Trust",
-    "Review Style Detail": "%s — %s%% of changed lines were hand-edited"
+    "Review Style Detail": "%s — %s%% of changed lines were hand-edited",
+    "Most Used AI Models": "Most Used AI Models"
   }
 }
