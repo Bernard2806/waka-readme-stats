@@ -134,7 +134,7 @@ inputs:
 
   SHOW_AI_TOTAL:
     required: false
-    description: "Show the all-time total AI tokens and cost in the standalone AI section"
+    description: "Show the total AI tokens and cost (all-time, falling back to the week) in the standalone AI section"
     default: "False"
 
   COMMIT_BY_ME:
