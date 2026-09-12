@@ -201,7 +201,7 @@ If there was no AI coding activity that week, the block still renders with a fal
 No AI Coding Activity Tracked This Week
 ```
 
-The `SHOW_AI_MODELS`, `SHOW_AI_TOKENS`, `SHOW_AI_COST` and `SHOW_AI_TOTAL` flags build a standalone AI usage section, each part optional and independent from the weekly `SHOW_AI_CODING` breakdown. When enabled but no AI data is available, the section renders a fallback message instead of disappearing:
+The `SHOW_AI_MODELS`, `SHOW_AI_TOKENS`, `SHOW_AI_COST` and `SHOW_AI_TOTAL` flags build a standalone AI usage section, each part optional and independent from the weekly `SHOW_AI_CODING` breakdown. The weekly AI numbers are aggregated from WakaTime's daily summaries, which include the current day (the `last_7_days` stats range may exclude today). When enabled but no AI data is available, the section renders a fallback message instead of disappearing:
 
 - `SHOW_AI_MODELS` — a list with the AI models you used the most this week. It reuses the same per-model data as `SHOW_AI_CODING`; when both flags are enabled, the per-model breakdown is rendered once in this standalone list instead of inside the weekly AI block.
 - `SHOW_AI_TOKENS` — this week's input/output token usage.
