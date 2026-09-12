@@ -206,7 +206,7 @@ The `SHOW_AI_MODELS`, `SHOW_AI_TOKENS`, `SHOW_AI_COST` and `SHOW_AI_TOTAL` flags
 - `SHOW_AI_MODELS` — a list with the AI models you used the most this week. It reuses the same per-model data as `SHOW_AI_CODING`; when both flags are enabled, the per-model breakdown is rendered once in this standalone list instead of inside the weekly AI block.
 - `SHOW_AI_TOKENS` — this week's input/output token usage.
 - `SHOW_AI_COST` — this week's estimated AI cost.
-- `SHOW_AI_TOTAL` — the all-time total AI tokens and cost (from WakaTime's `all_time` stats).
+- `SHOW_AI_TOTAL` — the total AI tokens and cost. It uses WakaTime's `all_time` stats and falls back to this week's totals when those fields are not present in the all-time response.
 
 **🤖 Most Used AI Models**
 
