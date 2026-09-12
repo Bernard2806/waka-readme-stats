@@ -123,7 +123,46 @@ def make_ai_coding_stats(data: Dict) -> str:
     return f"{stats[:-1]}```\n\n"
 
 
-def make_ai_usage_stats(data: Dict, all_time_data: Optional[Dict]) -> str:
+def aggregate_ai_from_summaries(summary_data: Optional[Dict]) -> Optional[Dict]:
+    """
+    Aggregate the AI fields of WakaTime's daily summaries into a single weekly-style block.
+    Unlike the `last_7_days` stats range, summaries include the current day, so AI usage shows up
+    as soon as it is tracked.
+
+    :param summary_data: WakaTime summaries response for the last 7 days, or None.
+    :returns: Dictionary with `ai_input_tokens`, `ai_output_tokens`, `ai_model_total_cost` and
+        `ai_model_breakdown`, or None when there is no AI data.
+    """
+    if not summary_data or not summary_data.get("data"):
+        return None
+
+    input_tokens = 0
+    output_tokens = 0
+    total_cost = 0.0
+    breakdown: Dict[str, Dict] = {}
+
+    for day in summary_data["data"]:
+        grand_total = day.get("grand_total") or {}
+        input_tokens += grand_total.get("ai_input_tokens") or 0
+        output_tokens += grand_total.get("ai_output_tokens") or 0
+        total_cost += grand_total.get("ai_model_total_cost") or 0
+        for model in grand_total.get("ai_model_breakdown") or []:
+            entry = breakdown.setdefault(model["name"], {"name": model["name"], "lines": 0, "cost": 0.0})
+            entry["lines"] += model.get("lines") or 0
+            entry["cost"] += model.get("cost") or 0
+
+    if not (input_tokens or output_tokens or total_cost or breakdown):
+        return None
+
+    return {
+        "ai_input_tokens": input_tokens,
+        "ai_output_tokens": output_tokens,
+        "ai_model_total_cost": total_cost,
+        "ai_model_breakdown": sorted(breakdown.values(), key=lambda model: model["lines"], reverse=True),
+    }
+
+
+def make_ai_usage_stats(data: Dict, all_time_data: Optional[Dict], summary_data: Optional[Dict]) -> str:
     """
     Build the standalone AI usage section. Every part is optional and controlled by its own flag:
     the most used models, this week's token usage, this week's estimated cost and the all-time totals.
@@ -131,11 +170,14 @@ def make_ai_usage_stats(data: Dict, all_time_data: Optional[Dict]) -> str:
 
     :param data: WakaTime weekly stats response (`waka_latest`).
     :param all_time_data: WakaTime all-time stats response (`waka_all`), or None when totals are disabled.
+    :param summary_data: WakaTime last-7-days summaries response (`waka_summary`), used as the weekly AI
+        source because it includes the current day.
     :returns: String representation of the AI usage stats.
     """
     blocks: List[str] = []
+    weekly_ai = aggregate_ai_from_summaries(summary_data) or data["data"]
 
-    ai_model_breakdown = data["data"].get("ai_model_breakdown", [])
+    ai_model_breakdown = weekly_ai.get("ai_model_breakdown", [])
     if EM.SHOW_AI_MODELS and ai_model_breakdown:
         total_lines = sum(model["lines"] for model in ai_model_breakdown) or 1
         names = [model["name"] for model in ai_model_breakdown]
@@ -148,13 +190,13 @@ def make_ai_usage_stats(data: Dict, all_time_data: Optional[Dict]) -> str:
             blocks.append(f"**🤖 {FM.t('Most Used AI Models')}** \n\n```text\n{model_list}\n```")
 
     if EM.SHOW_AI_TOKENS:
-        ai_input_tokens = data["data"].get("ai_input_tokens", 0)
-        ai_output_tokens = data["data"].get("ai_output_tokens", 0)
+        ai_input_tokens = weekly_ai.get("ai_input_tokens", 0)
+        ai_output_tokens = weekly_ai.get("ai_output_tokens", 0)
         if ai_input_tokens or ai_output_tokens:
             blocks.append(f"🔤 {FM.t('AI Token Usage') % (intcomma(ai_input_tokens), intcomma(ai_output_tokens))}")
 
     if EM.SHOW_AI_COST:
-        ai_cost = data["data"].get("ai_model_total_cost", 0)
+        ai_cost = weekly_ai.get("ai_model_total_cost", 0)
         if ai_cost:
             blocks.append(f"💵 {FM.t('Estimated AI Cost') % f'{ai_cost:.2f}'}")
 
@@ -165,8 +207,8 @@ def make_ai_usage_stats(data: Dict, all_time_data: Optional[Dict]) -> str:
             total_tokens = all_time_data["data"].get("ai_input_tokens", 0) + all_time_data["data"].get("ai_output_tokens", 0)
             total_cost = all_time_data["data"].get("ai_model_total_cost", 0)
         if not (total_tokens or total_cost):
-            total_tokens = data["data"].get("ai_input_tokens", 0) + data["data"].get("ai_output_tokens", 0)
-            total_cost = data["data"].get("ai_model_total_cost", 0)
+            total_tokens = weekly_ai.get("ai_input_tokens", 0) + weekly_ai.get("ai_output_tokens", 0)
+            total_cost = weekly_ai.get("ai_model_total_cost", 0)
         if total_tokens or total_cost:
             blocks.append(f"Σ {FM.t('Total AI Tokens') % intcomma(total_tokens)} · {FM.t('Total AI Cost') % f'{total_cost:.2f}'}")
 
@@ -240,7 +282,8 @@ async def get_waka_time_stats(repositories: Dict, commit_dates: Dict) -> str:
     if EM.SHOW_AI_MODELS or EM.SHOW_AI_TOKENS or EM.SHOW_AI_COST or EM.SHOW_AI_TOTAL:
         DBM.i("Adding AI usage stats...")
         all_time_data = await DM.get_remote_json("waka_all") if EM.SHOW_AI_TOTAL else None
-        stats += make_ai_usage_stats(data, all_time_data)
+        summary_data = await DM.get_remote_json("waka_summary")
+        stats += make_ai_usage_stats(data, all_time_data, summary_data)
 
     DBM.g("WakaTime stats added!")
     return stats
